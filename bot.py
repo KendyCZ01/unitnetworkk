@@ -275,4 +275,4 @@ async def pick(ctx):
 #@client.command(pass_context=True)
 #   async def pick(ctx):
 #   counter += 1
-client.run(os.getenv("NTU3ODE3Mzc3ODkxNTQ5MTk0.D3PQdA.v1TfZQtxNjnaKDynLeK4hDkJvqE"))
+client.run(os.getenv("BOT_TOKEN"))
