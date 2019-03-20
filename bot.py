@@ -17,7 +17,7 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 
-client = commands.Bot(command_prefix = "U!")
+client = commands.Bot(command_prefix = "u!")
 
 client.remove_command('help')
 
@@ -36,12 +36,12 @@ async def on_message(message):
     channel = message.channel
     r = random.choice
     mod = "522048274689949712"
-    odp1 = ":incoming_envelope: {} Podívej se do DM! :smile: :incoming_envelope:".format(message.author.mention)
+    odp1 = "::incoming_envelope: Nápověda poslána, zkontroluj PM {0}".format(message.author.mention)
     odp2 = "Nejsi moderátorem a nemáš pravomoce!"
     devodp = "Nejsi developer tohoto bota!"
     user = message.author
     embed = discord.Embed(title = "Unit-Network", icon_url="https://cdn.discordapp.com/attachments/514801364526825474/526861094182977540/creepy-icon-25.jpg", color = 0x5AD4A9)
-    embed.add_field(name = "Prefix:", value = "U!, u!",inline=False)
+    embed.add_field(name = "Prefix:", value = "u!",inline=False)
     embed.add_field(name = "Main server:", value = "https://discord.gg/U3eeYhz",inline=False)
 #----------------------------------------------
     if message.content.upper() == "u!info":
@@ -54,14 +54,14 @@ async def on_message(message):
         await client.send_message(user, "<#525371812884906014> pro navraceni se do chatu!", embed=embed)
         await client.send_message(message.channel, ":incoming_envelope: Nápověda poslána, zkontroluj PM {0}".format(message.author.mention))
 #----------------------------------------------
-    if message.content.upper() == "S!restart":
+    if message.content.upper() == "u!restart":
         if "522048274689949712" in (role.id for role in message.author.roles):
             await client.logout()
             await client.sned_message(message.channel, "Restartuji se. Počkejte chvíli.")
         else:
             await client.send_message(message.channel, "Nemáš dostatečné oprávnění!")
 #----------------------------------------------
-    if message.content.upper() == "S!PRISTI UPDATE":
+    if message.content.upper() == "u!next update":
         if "522048274689949712" in (role.id for role in message.author.roles):
             embed = discord.Embed(title = "Pristi update", color = 0x0FF00F)
             embed.add_field(name = "Pristi update bude o:", value = "``ban/kick/fun`` prikazech! a ``rcolor`` rcolor = rolecolor a budete si moct menit barvy role pomocí hex barv (#00FF00 atd...)",inline=False)
@@ -70,24 +70,19 @@ async def on_message(message):
         else:
             await client.send_message(message.channel, "Nejsi developer tohoto bota!")
 #----------------------------------------------
-    if message.content.upper() == "S!HELP":
-        embed = discord.Embed(title = "Pomoc!", color = 0x00FF00)
-        embed.add_field(name = "Prefix:", value = "S!",inline=True)
-        embed.add_field(name = "ghelp", value = "Ukáže Pomoc pro všechny! (připravuje se)",inline = False)
-        embed.add_field(name = "moderation help", value = "Ukáže ti pomoc pro moderátory! (připravuje se)",inline = False)
-        embed.add_field(name = "helpfun", value = "Ukáže ti vtipné přikazy! (doděláváme)",inline = False)
-        embed.add_field(name = "dev", value = "Ukáže pomoc pro developery! (jen pro developery!)",inline = False)
-        embed.add_field(name = "Dulezite Info", value = "Proc sem psat neco? vždiť je to uplně zbytečné xD __(Pouzijte bez prefixu!)__",inline=False)
-        embed.add_field(name = "justnela", value = "Ukáže Info o JustNela!",inline=True)
-        embed.add_field(name = "justvojta", value = "Ukáže Info o JustVojta!",inline=False)
-        embed.add_field(name = "spookybot", value = "Dá ti invite na support!(POUZIJTE BEZ PREFIXU)",inline=False)
-        embed.add_field(name = "dulezite info", value = "Da ti dulezite info!",inline=False)
+    if message.content.upper() == "u!help":
+        embed = discord.Embed(title = "Nápověda:", color = 0x00FF00)
+        embed.add_field(name = "Prefix:", value = "u!",inline=True)
+        embed.add_field(name = "Zábava: [0]", value = "Příkazy připravujeme",inline = False)
+        embed.add_field(name = "Pro moderátory: [0]", value = "Příkazy připravujeme",inline = False)
+        embed.add_field(name = "Pro developery: [1]", value = "restart",inline = False)
+        embed.add_field(name = "Informace: [0]", value = "Příkazy připravujeme",inline=False)
         embed.set_footer(text = "Na žádost hráče {}".format(message.author.name))
                                                           
         await client.send_message(user, embed=embed)
         await client.send_message(channel, odp1)
 #----------------------------------------------
-    if message.content.upper() == "S!DEV":
+    if message.content.upper() == "u!wad awd awd awd asd awd asd awd":
         if "525379003079720970" in (role.id for role in message.author.roles):
             embed = discord.Embed(title = "Pomoc pro developery!", color = 0x3D5AFE)
             embed.add_field(name = "S!restart", value = "Restartuje Bota!",inline=True)
@@ -97,7 +92,7 @@ async def on_message(message):
         else:
             await client.send_message(channel, devodp)
 #----------------------------------------------
-    if message.content.upper() == "S!MODERATION HELP":
+    if message.content.upper() == "u!dw awd asd awd asd wa":
         
         if "525379003079720970" in (role.id for role in message.author.roles):
             
@@ -112,32 +107,8 @@ async def on_message(message):
                 await client.sned_message(channel, ":incoming_envelope: {} Podívej se do DM! :smile: :incoming_envelope:".format(message.author.mention))
         else:
             await client.send_message(channel, "Nejsi moderátorem a nemáš pravomoce!")
-#----------------------------------------------
-    if message.content.upper() == "S!JUSTNELA":
-            embed = discord.Embed(title = "JustNela", color = 0x00FF00)
-            embed.set_footer(text = "JustNela#6666 je milá ale i zlá mrcha xD")
-            embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/468928524267290634/525662927529836574/f054ab37k2ny.gif")
-            embed.add_field(name = "Info", value = "Info o JustNela",inline=False)
-            embed.add_field(name = "Jméno:", value = "JustNela",inline=False)
-            embed.add_field(name = "Tag:", value = "#6666",inline=False)
-            embed.add_field(name = "ID:", value = "342364288310312970",inline=False)
-            embed.add_field(name = "Status:", value = "Nejčastěji Online!",inline=False)
-            await client.send_message(channel, odp1)
-            await client.send_message(user, embed=embed)
-#----------------------------------------------
-    if message.content.upper() == "S!JUSTVOJTA":
-            embed = discord.Embed(title = "JustVojta", color = 0x00FF00)
-            embed.set_footer(text = "Vojta rád pomáhá xD")
-            embed.set_thumbnail(url = "https://cdn.discordapp.com/avatars/522048274689949712/a_8e3176a1fa59aeb2c64da36dfc815402.gif")
-            embed.add_field(name = "Info", value = "Info o JustVojta",inline=False)
-            embed.add_field(name = "Jméno:", value = "JustVojta",inline=False)
-            embed.add_field(name = "Tag:", value = "#6969",inline=False)
-            embed.add_field(name = "ID:", value = "522048274689949712",inline=False)
-            embed.add_field(name = "Status:", value = "Nejčastěji Online!",inline=False)
-            await client.send_message(channel, odp1)
-            await client.send_message(user, embed=embed)
 #----------------------------------------------   
-    if message.content.upper() == "S!HELP FUN":
+    if message.content.upper() == "u! awd asd awd sad awdsasd awds awdsd awdsad awd as":
         embed = discord.Embed(title = "Fun Příkazy!", color = 0xFFFF00)
         embed.add_field(name = "S!LASKA",value = "Ukáže jak moc danou/daného věc/člověka miluješ",inline=False)
         embed.set_footer(text="Přivolal si mě ty ({})".format(message.author.name))
