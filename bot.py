@@ -17,7 +17,7 @@ from discord import Game, Embed, Color, Status, ChannelType
 
 
 
-client = commands.Bot(command_prefix = "u!")
+client = commands.Bot(command_prefix = "U!")
 
 client.remove_command('help')
 
@@ -26,7 +26,7 @@ client.remove_command('help')
 @client.event
 async def on_ready():
     channel = discord.utils.get(client.get_all_channels(), name='bot-log')
-    await client.change_presence(game=discord.Game(name= "Napiš u!help !"))
+    await client.change_presence(game=discord.Game(name= "Napiš u!help"))
     print("The bot is online and connected with Discord!") 
     await client.send_message(channel, "**Reset bota proběhl uspěšě! :thumbsup:")
     
@@ -35,34 +35,34 @@ async def on_ready():
 async def on_message(message):
     channel = message.channel
     r = random.choice
-    mod = "525379003079720970"
+    mod = "522048274689949712"
     odp1 = ":incoming_envelope: {} Podívej se do DM! :smile: :incoming_envelope:".format(message.author.mention)
     odp2 = "Nejsi moderátorem a nemáš pravomoce!"
     devodp = "Nejsi developer tohoto bota!"
     user = message.author
-    embed = discord.Embed(title = "SpookyBot!", icon_url="https://cdn.discordapp.com/attachments/514801364526825474/526861094182977540/creepy-icon-25.jpg", color = 0x5AD4A9)
-    embed.add_field(name = "Prefix:", value = "S!",inline=False)
-    embed.add_field(name = "Support Server:", value = "https://discord.gg/pNWyc38",inline=False)
+    embed = discord.Embed(title = "Unit-Network", icon_url="https://cdn.discordapp.com/attachments/514801364526825474/526861094182977540/creepy-icon-25.jpg", color = 0x5AD4A9)
+    embed.add_field(name = "Prefix:", value = "U!, u!",inline=False)
+    embed.add_field(name = "Main server:", value = "https://discord.gg/U3eeYhz",inline=False)
 #----------------------------------------------
-    if message.content.upper() == "SPOOKYBOT":
+    if message.content.upper() == "u!info":
         await client.send_message(channel, embed=embed)
     embed = discord.Embed(title="Důležité info!", color = 0x8AD2A6)
-    embed.add_field(name = "Důležité:",value="Nic nemám :joy:",inline=False)
+    embed.add_field(name = "Důležité:",value="-- Připravujeme --",inline=False)
     embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/514801364526825474/526861094182977540/creepy-icon-25.jpg")
 #----------------------------------------------
     if message.content.upper() == "DULEZITE INFO":
         await client.send_message(user, "<#525371812884906014> pro navraceni se do chatu!", embed=embed)
-        await client.send_message(message.channel, ":incoming_envelope: Podívej se do DM! {0} :incoming_envelope:".format(message.author.mention))
+        await client.send_message(message.channel, ":incoming_envelope: Nápověda poslána, zkontroluj PM {0}".format(message.author.mention))
 #----------------------------------------------
     if message.content.upper() == "S!restart":
-        if "525379003079720970" in (role.id for role in message.author.roles):
+        if "522048274689949712" in (role.id for role in message.author.roles):
             await client.logout()
             await client.sned_message(message.channel, "Restartuji se. Počkejte chvíli.")
         else:
             await client.send_message(message.channel, "Nemáš dostatečné oprávnění!")
 #----------------------------------------------
     if message.content.upper() == "S!PRISTI UPDATE":
-        if "525379003079720970" in (role.id for role in message.author.roles):
+        if "522048274689949712" in (role.id for role in message.author.roles):
             embed = discord.Embed(title = "Pristi update", color = 0x0FF00F)
             embed.add_field(name = "Pristi update bude o:", value = "``ban/kick/fun`` prikazech! a ``rcolor`` rcolor = rolecolor a budete si moct menit barvy role pomocí hex barv (#00FF00 atd...)",inline=False)
             await client.send_message(user, embed=embed)
