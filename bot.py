@@ -77,7 +77,7 @@ async def on_message(message):
         embed.add_field(name = "Pro moderátory: [0]", value = "Příkazy připravujeme",inline = False)
         embed.add_field(name = "Pro developery: [1]", value = "restart",inline = False)
         embed.add_field(name = "Informace: [0]", value = "Příkazy připravujeme",inline=False)
-        embed.set_footer(text = "Na žádost hráče {}".format(message.author.name))
+        embed.set_footer(text = "Prefix: u!, na žádost hráče {}".format(message.author.name))
                                                           
         await client.send_message(user, embed=embed)
         await client.send_message(channel, odp1)
